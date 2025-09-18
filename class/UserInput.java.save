@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class UserInput{
+  public static void main(String[] args){
+    Scanner in = new Scanner(System.in);
+    System.out.println("Enter width");
+    int width = in.nextInt();
+    System.out.println("Enter height");
+    int height = in.nextInt();
+    double slope = ((double) height)/ width;
+    System.out.println("The slops is: %.2f\n', slope);
+    
+    in.close();
+  }
+}  
