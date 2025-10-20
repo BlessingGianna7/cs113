@@ -77,7 +77,7 @@ public class ArraysRecursion {
 		}
     }
 
-    
+  
     public static int countOccurrences(int[] nums, int target){
 
       return countOccurrencesHelper(0, nums, target);
@@ -90,25 +90,37 @@ public class ArraysRecursion {
 		} else {
 			return countOccurrencesHelper(i + 1, nums, target); }
 
- 	 } 
+	 } 
 
-
-	// Skeleton implementation for now — replace with recursive logic later.
-	/* public static double power(double [] nums, int pow){
-      int i = 0;
-      int len = nums.length;
-      if(i <= len){
-      return powerHelper(1, nums[i], pow);
-      }
+	 public static double singlePower(double num, int pow){
+	      return powerHelper(1, num, pow);
 	 }
 
+   
+	 public static double[] power(double[] nums, int pow){
+		 int len = nums.length;
+       double[] newNums = new double[len];
+       return arrayFiller(0,nums, newNums, pow);
+	 }
+
+    //function to fill new array with elements from first array powered
+	 public static double[] arrayFiller(int i,double[] nums, double[] newNums, int pow){
+		if (i == nums.length) {
+            return newNums;
+        }
+
+        newNums[i] = singlePower(nums[i], pow);
+        return arrayFiller(i + 1, nums, newNums, pow);
+	 }
+
+    //function to power one double n times
     public static double powerHelper ( int i, double x, int n){
       if(i > n){
          return 1;
       } else {
          return x * powerHelper(i + 1, x, n);
       }
-    }*/
+    }
 
 
     public static void main(String[] args){
@@ -118,8 +130,7 @@ public class ArraysRecursion {
       isSorted(new int[]{9,8,7,6}, true);
       removeLetters("giaaaanaassa",new char[]{'a', 's'});
       countOccurrences(new int[]{1,3,4,4,3,2,3,4,5,3}, 4);
-     // power(new double[]{2.3,5.6,5.7,2.0}, 2);
-
+      power(new double[]{2.3,5.6,5.7,2.0}, 2);
 
     }
 
